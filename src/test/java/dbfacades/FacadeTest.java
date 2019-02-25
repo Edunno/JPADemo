@@ -74,8 +74,11 @@ public class FacadeTest {
 
     @Test
     public void deleteCarByIDTest() {
+        int x =facade.getAllCars().size();
         int id = facade.getAllCars().get(facade.getAllCars().size()-1).getId();
         facade.deleteCarByID(id);
+        int y = facade.getAllCars().size();
+        Assert.assertEquals(x-1, y);
     }
 
 }
