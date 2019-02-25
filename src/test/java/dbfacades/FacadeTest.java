@@ -23,7 +23,7 @@ public class FacadeTest {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu-test", null);
 
-    DemoFacade facade = new DemoFacade(emf);
+    DemoFacade facade = new DemoFacade(emf); 
 
     /**
      * Setup test data in the database to a known state BEFORE Each test
