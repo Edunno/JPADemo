@@ -55,38 +55,27 @@ public class FacadeTest {
 
     @Test
     public void getAllCarsTest() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        DemoFacade d = new DemoFacade(emf);
         List<Car> cars = facade.getAllCars();
-        Assert.assertEquals(3, cars.size());
+        Assert.assertEquals(2, cars.size());
     }
 
     @Test
     public void getCarsByMakeTest() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        DemoFacade d = new DemoFacade(emf);
-        Car a = d.getCarsByMake("WW");
+        Car a = facade.getCarsByMake("WW");
         Assert.assertTrue(a.getMake().equals("WW"));
     }
 
     @Test
     public void getCarsByIDTest() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        DemoFacade d = new DemoFacade(emf);
-        String id = Integer.toString(d.getAllCars().get(0).getId());
-        Car a = d.getCarByID(id); 
+        String id = Integer.toString(facade.getAllCars().get(0).getId());
+        Car a = facade.getCarByID(id); 
         Assert.assertTrue(a.getId().equals(Integer.parseInt(id)));
     }
 
     @Test
     public void deleteCarByIDTest() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        DemoFacade d = new DemoFacade(emf);
-        int id = d.getAllCars().get(d.getAllCars().size()-1).getId();
-        d.deleteCarByID(id);
-        Car a = new Car("Volvo");
-        a.setId(id);
-        d.addCar(a);
+        int id = facade.getAllCars().get(facade.getAllCars().size()-1).getId();
+        facade.deleteCarByID(id);
     }
 
 }
