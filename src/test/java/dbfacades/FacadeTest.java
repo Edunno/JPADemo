@@ -74,7 +74,7 @@ public class FacadeTest {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         DemoFacade d = new DemoFacade(emf);
         String id = Integer.toString(d.getAllCars().get(0).getId());
-        Car a = d.getCarByID(id);
+        Car a = d.getCarByID(id); 
         Assert.assertTrue(a.getId().equals(Integer.parseInt(id)));
     }
 
